@@ -23,7 +23,7 @@ messageArray;
   	this.userService.userInfo.subscribe(user => {
         this.user= user;
         if(this.user.image.slice(0,5)!='https')
-        this.user.image = API_URL +this.user.image;
+        this.user.image = this.user.image;
         this.userService.emitnoti(user);
         this.messageArray = new Array();
         console.log(user);

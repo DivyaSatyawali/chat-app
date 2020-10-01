@@ -26,9 +26,11 @@ get;
     return this.http.post<any>(`${API_URL}userAuth/login`,{email,password},this.httpOptions);
 
   }
-    setUserTokenToCookie(token){
+    setUserTokenToCookie(token,tokenTime){
     
-    this.cookieService.set('authorization',token)
+    this.cookieService.set('authorization',token);
+    this.cookieService.set('time',tokenTime);/*Time for which token will be valid is stored in cookies so we don't have to go for server for any check in the validity period*/
+      
     this.httpOptions = {
       
       headers: new HttpHeaders({

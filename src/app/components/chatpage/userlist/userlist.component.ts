@@ -43,8 +43,8 @@ active;
       console.log(this.rooms);
       for(i=0;i<this.users.length;i++)
       {
-        if(this.users[i].image.slice(0,5)!='https')
-        this.users[i].image = API_URL +this.users[i].image;
+        // if(this.users[i].image.slice(0,5)!='https')
+        this.users[i].image = this.users[i].image;
       }
       for(i=0;i<this.rooms.length;i++)
       {
@@ -60,6 +60,7 @@ active;
         this.chatService.getMessages(this.rooms[i]).subscribe(messages => {
           let val = (messages.data[messages.data.length-1])
           console.log(val);
+          
           if(val && val.status === "Notseen" && this.id.name === val.receiver)
           {this.noti[j] = true;console.log("pop")}
           console.log(this.noti[j]);
